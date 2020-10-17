@@ -1,11 +1,3 @@
-// упаковщик-распаковщик текста в изображение
-// AlexGyver, 2020, https://alexgyver.ru/
-// Добавил парсинг переноса строк
-
-/*
-  В Processing зайти "Набросок / Импортировать библиотеку... / Добавить библиотеку..."
- В поиске найти и установить библиотеку ControlP5
- */
 import controlP5.*;
 ControlP5 cp5;
 Textarea debugArea;
@@ -27,7 +19,7 @@ void setup() {
     .setFont(createFont("arial", 15))
     .setAutoClear(false)
     .setCaptionLabel("")
-    .setText("key")
+    .setText("Key")
     ;
   cp5.addButton("encrypt").setCaptionLabel("ENCRYPT  AND  SAVE").setPosition(10, 140).setSize(120, 25);  
   cp5.addButton("decrypt").setCaptionLabel("DECRYPT  AND  SAVE").setPosition(10, 170).setSize(120, 25);
@@ -37,11 +29,12 @@ void setup() {
     .setSize(240, 185)
     .setFont(createFont("arial", 12))
     .setLineHeight(14)
-    .setColor(color(0))
-    .setColorBackground(color(180))
+    .setColor(color(180))
+    .setColorBackground(color(20))
     .setColorForeground(color(180));
   ;
-  debugArea.setText("CryptoText v1.0 by AlexGyver");
+  debugArea.setText("CryptoText v1.0 от AlexGyver  Исходный код: github.com/AlexGyver/crypto/tree/main/ image-text/cryptoText");
+  // Дикий костыль, но выглядит классно. Поправлю по желанию))
 }
 
 void draw() {
@@ -71,11 +64,11 @@ void encrypt() {
 
     // ошибки
     if (textSize == 0) {
-      debugArea.setText("Empty text file");
+      debugArea.setText("Файл с текстом пуст!");
       return;
     }
     if (textSize >= imgSize) {
-      debugArea.setText("Image is too small");
+      debugArea.setText("Картинка слишком мала!");
       return;
     }
 
@@ -129,8 +122,8 @@ void encrypt() {
     }
     imageCrypt.updatePixels();                   // обновляем изображение
     imageCrypt.save("crypt_image.bmp");          // сохраняем
-    debugArea.setText("Finished");
-  } else debugArea.setText("Image is not selected");
+    debugArea.setText("Готово");
+  } else debugArea.setText("Вы не выбрали картинку!");
 }
 
 // кнопка дешифровки
@@ -184,7 +177,7 @@ void decrypt() {
     String[] lines = new String[1];
     lines[0] = decryptText;
     saveStrings("decrypt_text.txt", lines);
-  } else debugArea.setText("Crypted image is not selected");
+  } else debugArea.setText("Вы не выбрали картинку!");
 }
 
 // прочие кнопки
@@ -196,7 +189,7 @@ void selectRef(File selection) {
   if (selection != null) {
     refPath = selection.getAbsolutePath();
     debugArea.setText(refPath);
-  } else debugArea.setText("Image is not selected");
+  } else debugArea.setText("Вы не выбрали картинку!");
 }
 
 void load_crypt() {
@@ -207,7 +200,7 @@ void selectCrypt(File selection) {
   if (selection != null) {
     cryptPath = selection.getAbsolutePath();
     debugArea.setText(cryptPath);
-  } else debugArea.setText("Crypted image is not selected");
+  } else debugArea.setText("Вы не выбрали картинку!");
 }
 
 void load_crypt_text() {
@@ -218,5 +211,5 @@ void selectCryptText(File selection) {
   if (selection != null) {
     textPath = selection.getAbsolutePath();
     debugArea.setText(textPath);
-  } else debugArea.setText("Text file is not selected");
+  } else debugArea.setText("Вы не выбрали файл с текстом!");
 }
