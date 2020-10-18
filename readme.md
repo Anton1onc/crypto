@@ -1,5 +1,5 @@
-# **CryptoText v.1.0 by AlexGyver...**
-... И модом от Anton1onc)))
+# **CryptoText by AlexGyver...**
+... С модом от Anton1onc)))
 ![1](/1.jpg)
 ### Ченджлог:
 - [ ] Билд в один .exe файл.
