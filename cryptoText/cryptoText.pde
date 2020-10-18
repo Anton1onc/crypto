@@ -45,7 +45,7 @@ void setup() {
     ;
     
  cp5.addButton("decrypt")
-  .setCaptionLabel("Разшифровать")
+  .setCaptionLabel("Расшифровать")
   .setPosition(10, 165)
   .setSize(230, 35)
   .setFont(createFont("arial", 12))
@@ -69,7 +69,6 @@ void setup() {
     .setColorBackground(color(20))
     .setColorForeground(color(180));
   ;
-  debugArea.setText("CryptoText");
 }
 
 void draw() {
