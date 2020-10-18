@@ -33,7 +33,7 @@ void setup() {
     .setColorBackground(color(20))
     .setColorForeground(color(180));
   ;
-  debugArea.setText("CryptoText v1.0 от AlexGyver  Исходный код: github.com/AlexGyver/crypto/tree/main/ image-text/cryptoText");
+  debugArea.setText("CryptoText v1.0 от AlexGyver   Исходный код: github.com/AlexGyver/crypto/tree/main/ image-text/cryptoText");
   // Дикий костыль, но выглядит классно. Поправлю по желанию))
 }
 
