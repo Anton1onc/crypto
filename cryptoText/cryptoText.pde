@@ -10,31 +10,30 @@ void setup() {
 
   // GUI
   cp5 = new ControlP5(this);
-  cp5.addButton("load_ref").setCaptionLabel("LOAD  IMAGE").setPosition(10, 10).setSize(120, 25);
-  cp5.addButton("load_crypt_text").setCaptionLabel("LOAD  TEXT").setPosition(10, 40).setSize(120, 25);
-  cp5.addButton("load_crypt").setCaptionLabel("LOAD  CRYPT  IMAGE").setPosition(10, 70).setSize(120, 25);
+  cp5.addButton("load_ref").setCaptionLabel("Загрузить картинку").setPosition(10, 10).setSize(120, 25).setFont(createFont("arial", 10));
+  cp5.addButton("load_crypt_text").setCaptionLabel("Загрузить текст").setPosition(10, 40).setSize(120, 25).setFont(createFont("arial", 10));
+  cp5.addButton("load_crypt").setCaptionLabel("Загрузить шифр. картинку").setPosition(10, 70).setSize(120, 25).setFont(createFont("arial", 8));
   cp5.addTextfield("key")
     .setPosition(10, 110)
     .setSize(120, 25)
-    .setFont(createFont("arial", 15))
+    .setFont(createFont("arial", 13))
     .setAutoClear(false)
     .setCaptionLabel("")
-    .setText("Key")
+    .setText("Ключ")
     ;
-  cp5.addButton("encrypt").setCaptionLabel("ENCRYPT  AND  SAVE").setPosition(10, 140).setSize(120, 25);  
-  cp5.addButton("decrypt").setCaptionLabel("DECRYPT  AND  SAVE").setPosition(10, 170).setSize(120, 25);
+  cp5.addButton("encrypt").setCaptionLabel("Зашифровать").setPosition(10, 140).setSize(120, 25).setFont(createFont("arial", 10));  
+  cp5.addButton("decrypt").setCaptionLabel("Разшифровать").setPosition(10, 170).setSize(120, 25).setFont(createFont("arial", 10));
 
   debugArea = cp5.addTextarea("decryptText")
     .setPosition(150, 10)
     .setSize(240, 185)
-    .setFont(createFont("arial", 12))
+    .setFont(createFont("arial", 14))
     .setLineHeight(14)
     .setColor(color(180))
     .setColorBackground(color(20))
     .setColorForeground(color(180));
   ;
-  debugArea.setText("CryptoText v1.0 от AlexGyver   Исходный код: github.com/AlexGyver/crypto/tree/main/ image-text/cryptoText");
-  // Дикий костыль, но выглядит классно. Поправлю по желанию))
+  debugArea.setText("CryptoText v1.0 от AlexGyver ");
 }
 
 void draw() {
