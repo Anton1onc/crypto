@@ -6,34 +6,70 @@ PImage imageCrypt, imageRef;
 int imgWidth;
 
 void setup() {
-  size(400, 205);
+  size(500, 250);
 
   // GUI
   cp5 = new ControlP5(this);
-  cp5.addButton("load_ref").setCaptionLabel("Загрузить картинку").setPosition(10, 10).setSize(120, 25).setFont(createFont("arial", 10));
-  cp5.addButton("load_crypt_text").setCaptionLabel("Загрузить текст").setPosition(10, 40).setSize(120, 25).setFont(createFont("arial", 10));
-  cp5.addButton("load_crypt").setCaptionLabel("Загрузить шифр. картинку").setPosition(10, 70).setSize(120, 25).setFont(createFont("arial", 8));
+  cp5.addButton("load_ref").setCaptionLabel("Загрузить картинку")
+  .setPosition(10, 10)
+  .setSize(230, 35)
+  .setColorBackground(color(20))
+  .setFont(createFont("arial", 12))
+  ;
+  
+  cp5.addButton("load_crypt_text")
+  .setCaptionLabel("Загрузить текст")
+  .setPosition(10, 50)
+  .setSize(230, 35)
+  .setColorBackground(color(20))
+  .setFont(createFont("arial", 12))
+  ;
+  
+  cp5.addButton("load_crypt")
+  .setCaptionLabel("Загрузить шифр. картинку")
+  .setPosition(10, 90)
+  .setSize(230, 35)
+  .setColorBackground(color(20))
+  .setFont(createFont("arial", 12))
+  ;
+  
   cp5.addTextfield("key")
-    .setPosition(10, 110)
-    .setSize(120, 25)
-    .setFont(createFont("arial", 13))
+    .setPosition(10, 130)
+    .setSize(230, 30)
+    .setFont(createFont("arial", 15))
     .setAutoClear(false)
     .setCaptionLabel("")
     .setText("Ключ")
+    .setColor(color(255))
+    .setColorBackground(color(20))
     ;
-  cp5.addButton("encrypt").setCaptionLabel("Зашифровать").setPosition(10, 140).setSize(120, 25).setFont(createFont("arial", 10));  
-  cp5.addButton("decrypt").setCaptionLabel("Разшифровать").setPosition(10, 170).setSize(120, 25).setFont(createFont("arial", 10));
+    
+ cp5.addButton("decrypt")
+  .setCaptionLabel("Разшифровать")
+  .setPosition(10, 165)
+  .setSize(230, 35)
+  .setFont(createFont("arial", 12))
+  .setColorBackground(color(20))
+  ;
+  
+  cp5.addButton("encrypt")
+  .setCaptionLabel("Зашифровать")
+  .setPosition(10, 205)
+  .setSize(230, 35)
+  .setFont(createFont("arial", 12))
+  .setColorBackground(color(20))
+  ;  
 
   debugArea = cp5.addTextarea("decryptText")
-    .setPosition(150, 10)
-    .setSize(240, 185)
+    .setPosition(250, 10)
+    .setSize(240, 230)
     .setFont(createFont("arial", 14))
     .setLineHeight(14)
-    .setColor(color(180))
+    .setColor(color(255))
     .setColorBackground(color(20))
     .setColorForeground(color(180));
   ;
-  debugArea.setText("CryptoText v1.0 от AlexGyver ");
+  debugArea.setText("CryptoText");
 }
 
 void draw() {
@@ -199,7 +235,7 @@ void selectCrypt(File selection) {
   if (selection != null) {
     cryptPath = selection.getAbsolutePath();
     debugArea.setText(cryptPath);
-  } else debugArea.setText("Вы не выбрали картинку!");
+  } else debugArea.setText("Вы не выбрали картинку для разшифровки!");
 }
 
 void load_crypt_text() {
