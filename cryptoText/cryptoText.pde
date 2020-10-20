@@ -123,11 +123,11 @@ void encrypt() {
 
     // ошибки
     if (textSize == 0) {
-      debugArea.setText("Файл с текстом пуст!");
+      debugArea.setText("Файл с текстом пуст! | Empty text file!");
       return;
     }
     if (textSize >= imgSize) {
-      debugArea.setText("Картинка слишком мала!");
+      debugArea.setText("Картинка слишком мала! | Image is too small!");
       return;
     }
 
@@ -181,8 +181,8 @@ void encrypt() {
     }
     imageCrypt.updatePixels();                   // обновляем изображение
     imageCrypt.save("crypt_image.bmp");          // сохраняем
-    debugArea.setText("Готово");
-  } else debugArea.setText("Вы не выбрали картинку!");
+    debugArea.setText("Готово | Finished");
+  } else debugArea.setText("Вы не выбрали картинку! | Image is not selected!");
 }
 
 // кнопка дешифровки
@@ -236,7 +236,7 @@ void decrypt() {
     String[] lines = new String[1];
     lines[0] = decryptText;
     saveStrings("decrypt_text.txt", lines);
-  } else debugArea.setText("Вы не выбрали картинку!");
+  } else debugArea.setText("Вы не выбрали картинку для разшифровки! | Crypted image is not selected!");
 }
 
 // прочие кнопки
@@ -248,7 +248,7 @@ void selectRef(File selection) {
   if (selection != null) {
     refPath = selection.getAbsolutePath();
     debugArea.setText(refPath);
-  } else debugArea.setText("Вы не выбрали картинку!");
+  } else debugArea.setText("Вы не выбрали картинку! | Image is not selected!");
 }
 
 void load_crypt() {
@@ -259,7 +259,7 @@ void selectCrypt(File selection) {
   if (selection != null) {
     cryptPath = selection.getAbsolutePath();
     debugArea.setText(cryptPath);
-  } else debugArea.setText("Вы не выбрали картинку для разшифровки!");
+  } else debugArea.setText("Вы не выбрали картинку для разшифровки! | Crypted image is not selected!");
 }
 
 void load_crypt_text() {
@@ -270,7 +270,7 @@ void selectCryptText(File selection) {
   if (selection != null) {
     textPath = selection.getAbsolutePath();
     debugArea.setText(textPath);
-  } else debugArea.setText("Вы не выбрали файл с текстом!");
+  } else debugArea.setText("Вы не выбрали файл с текстом! | Text file is not selected!");
 }
 
 void english() {
