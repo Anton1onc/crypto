@@ -34,15 +34,15 @@ void setup() {
   ;
   
   cp5.addTextfield("key")
-    .setPosition(10, 130)
-    .setSize(230, 30)
-    .setFont(createFont("arial", 15))
-    .setAutoClear(false)
-    .setCaptionLabel("")
-    .setText("Ключ")
-    .setColor(color(255))
-    .setColorBackground(color(20))
-    ;
+  .setPosition(10, 130)
+  .setSize(230, 30)
+  .setFont(createFont("arial", 15))
+  .setAutoClear(false)
+  .setCaptionLabel("")
+  .setText("Ключ")
+  .setColor(color(255))
+  .setColorBackground(color(20))
+  ;
     
  cp5.addButton("decrypt")
   .setCaptionLabel("Расшифровать")
@@ -61,17 +61,18 @@ void setup() {
   ;  
 
   debugArea = cp5.addTextarea("decryptText")
-    .setPosition(250, 10)
-    .setSize(240, 230)
-    .setFont(createFont("arial", 14))
-    .setLineHeight(14)
-    .setColor(color(255))
-    .setColorBackground(color(20))
-    .setColorForeground(color(180));
+  .setPosition(250, 10)
+  .setSize(240, 230)
+  .setFont(createFont("arial", 14))
+  .setLineHeight(14)
+  .setColor(color(255))
+  .setColorBackground(color(20))
+  .setColorForeground(color(180));
   ;
 }
 
 void draw() {
+  background(50);
 }
 
 // получаем сид из ключа шифрования
