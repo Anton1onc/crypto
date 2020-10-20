@@ -1,40 +1,48 @@
 import controlP5.*;
 ControlP5 cp5;
 Textarea debugArea;
+Button load_ref;
+Button load_crypt_text;
+Button load_crypt;
+Textfield seed;
+Button decrypt;
+Button encrypt;
 String cryptPath="", refPath="", textPath="";
 PImage imageCrypt, imageRef;
 int imgWidth;
 
 void setup() {
-  size(500, 250);
+  size(500, 280);
 
   // GUI
   cp5 = new ControlP5(this);
-  cp5.addButton("load_ref").setCaptionLabel("Загрузить картинку")
-  .setPosition(10, 10)
+  
+  load_ref = cp5.addButton("load_ref")
+  .setCaptionLabel("Загрузить картинку")
+  .setPosition(10, 40)
   .setSize(230, 35)
   .setColorBackground(color(20))
   .setFont(createFont("arial", 12))
   ;
   
-  cp5.addButton("load_crypt_text")
+  load_crypt_text = cp5.addButton("load_crypt_text")
   .setCaptionLabel("Загрузить текст")
-  .setPosition(10, 50)
+  .setPosition(10, 80)
   .setSize(230, 35)
   .setColorBackground(color(20))
   .setFont(createFont("arial", 12))
   ;
   
-  cp5.addButton("load_crypt")
+  load_crypt = cp5.addButton("load_crypt")
   .setCaptionLabel("Загрузить шифр. картинку")
-  .setPosition(10, 90)
+  .setPosition(10, 120)
   .setSize(230, 35)
   .setColorBackground(color(20))
   .setFont(createFont("arial", 12))
   ;
   
-  cp5.addTextfield("key")
-  .setPosition(10, 130)
+  seed = cp5.addTextfield("key")
+  .setPosition(10, 160)
   .setSize(230, 30)
   .setFont(createFont("arial", 15))
   .setAutoClear(false)
@@ -44,30 +52,46 @@ void setup() {
   .setColorBackground(color(20))
   ;
     
- cp5.addButton("decrypt")
+ decrypt = cp5.addButton("decrypt")
   .setCaptionLabel("Расшифровать")
-  .setPosition(10, 165)
+  .setPosition(10, 195)
   .setSize(230, 35)
   .setFont(createFont("arial", 12))
   .setColorBackground(color(20))
   ;
   
-  cp5.addButton("encrypt")
+  encrypt = cp5.addButton("encrypt")
   .setCaptionLabel("Зашифровать")
-  .setPosition(10, 205)
+  .setPosition(10, 235)
   .setSize(230, 35)
   .setFont(createFont("arial", 12))
   .setColorBackground(color(20))
   ;  
 
   debugArea = cp5.addTextarea("decryptText")
-  .setPosition(250, 10)
+  .setPosition(250, 40)
   .setSize(240, 230)
   .setFont(createFont("arial", 14))
   .setLineHeight(14)
   .setColor(color(255))
   .setColorBackground(color(20))
   .setColorForeground(color(180));
+  ;
+  
+  cp5.addButton("english")
+  .setCaptionLabel("Eng")
+  .setPosition(425, 10)
+  .setSize(30, 25)
+  .setFont(createFont("arial", 12))
+  .setColorBackground(color(20))
+  ;
+  
+  cp5.addButton("rus")
+  .setCaptionLabel("Rus")
+  .setPosition(460, 10)
+  .setSize(30, 25)
+  .setFont(createFont("arial", 12))
+  .setColorBackground(color(20))
   ;
 }
 
@@ -247,4 +271,22 @@ void selectCryptText(File selection) {
     textPath = selection.getAbsolutePath();
     debugArea.setText(textPath);
   } else debugArea.setText("Вы не выбрали файл с текстом!");
+}
+
+void english() {
+  load_ref.setCaptionLabel("Load image");
+  load_crypt_text.setCaptionLabel("Load text");
+  load_crypt.setCaptionLabel("Load crypt image");
+  seed.setText("Key");
+  decrypt.setCaptionLabel("Encrypt and save");
+  encrypt.setCaptionLabel("Decrypt and save");
+}
+
+void rus() {
+  load_ref.setCaptionLabel("Загрузить картинку");
+  load_crypt_text.setCaptionLabel("Загрузить текст");
+  load_crypt.setCaptionLabel("Загрузить шифр. картинку");
+  seed.setText("Ключ");
+  decrypt.setCaptionLabel("Расшифровать");
+  encrypt.setCaptionLabel("Зашифровать");
 }
