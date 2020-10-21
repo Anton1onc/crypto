@@ -10,6 +10,7 @@ Button encrypt;
 String cryptPath="", refPath="", textPath="";
 PImage imageCrypt, imageRef;
 int imgWidth;
+int background;
 
 void setup() {
   size(500, 280);
@@ -93,6 +94,7 @@ void setup() {
   .setFont(createFont("arial", 12))
   .setColorBackground(color(20))
   ;
+  int background = 50;
 }
 
 void draw() {
