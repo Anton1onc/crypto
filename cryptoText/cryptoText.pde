@@ -10,7 +10,7 @@ Button encrypt;
 String cryptPath="", refPath="", textPath="";
 PImage imageCrypt, imageRef;
 int imgWidth;
-int background;
+byte lang;
 
 void setup() {
   size(500, 280);
@@ -94,7 +94,6 @@ void setup() {
   .setFont(createFont("arial", 12))
   .setColorBackground(color(20))
   ;
-  int background = 50;
 }
 
 void draw() {
@@ -125,11 +124,11 @@ void encrypt() {
 
     // ошибки
     if (textSize == 0) {
-      debugArea.setText("Файл с текстом пуст! | Empty text file!");
+      debugArea.setText("Файл с текстом пуст! \nEmpty text file!");
       return;
     }
     if (textSize >= imgSize) {
-      debugArea.setText("Картинка слишком мала! | Image is too small!");
+      debugArea.setText("Картинка слишком мала! \nImage is too small!");
       return;
     }
 
@@ -183,8 +182,8 @@ void encrypt() {
     }
     imageCrypt.updatePixels();                   // обновляем изображение
     imageCrypt.save("crypt_image.bmp");          // сохраняем
-    debugArea.setText("Готово | Finished");
-  } else debugArea.setText("Вы не выбрали картинку! | Image is not selected!");
+    debugArea.setText("Готово \nFinished");
+  } else debugArea.setText("Вы не выбрали картинку! \nImage is not selected!");
 }
 
 // кнопка дешифровки
@@ -238,7 +237,7 @@ void decrypt() {
     String[] lines = new String[1];
     lines[0] = decryptText;
     saveStrings("decrypt_text.txt", lines);
-  } else debugArea.setText("Вы не выбрали картинку для разшифровки! | Crypted image is not selected!");
+  } else debugArea.setText("Вы не выбрали картинку для разшифровки! \nCrypted image is not selected!");
 }
 
 // прочие кнопки
@@ -250,7 +249,7 @@ void selectRef(File selection) {
   if (selection != null) {
     refPath = selection.getAbsolutePath();
     debugArea.setText(refPath);
-  } else debugArea.setText("Вы не выбрали картинку! | Image is not selected!");
+  } else debugArea.setText("Вы не выбрали картинку! \nImage is not selected!");
 }
 
 void load_crypt() {
@@ -261,7 +260,7 @@ void selectCrypt(File selection) {
   if (selection != null) {
     cryptPath = selection.getAbsolutePath();
     debugArea.setText(cryptPath);
-  } else debugArea.setText("Вы не выбрали картинку для разшифровки! | Crypted image is not selected!");
+  } else debugArea.setText("Вы не выбрали картинку для разшифровки! \nCrypted image is not selected!");
 }
 
 void load_crypt_text() {
@@ -272,10 +271,11 @@ void selectCryptText(File selection) {
   if (selection != null) {
     textPath = selection.getAbsolutePath();
     debugArea.setText(textPath);
-  } else debugArea.setText("Вы не выбрали файл с текстом! | Text file is not selected!");
+  } else debugArea.setText("Вы не выбрали файл с текстом! \nText file is not selected!");
 }
 
 void english() {
+  byte lang = 1;
   load_ref.setCaptionLabel("Load image");
   load_crypt_text.setCaptionLabel("Load text");
   load_crypt.setCaptionLabel("Load crypt image");
@@ -285,6 +285,7 @@ void english() {
 }
 
 void rus() {
+  byte lang = 2;
   load_ref.setCaptionLabel("Загрузить картинку");
   load_crypt_text.setCaptionLabel("Загрузить текст");
   load_crypt.setCaptionLabel("Загрузить шифр. картинку");
