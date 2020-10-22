@@ -1,4 +1,4 @@
-# [NEW REPOSITORY] (https://github.com/KUKURUZKA165/cryptoText) #
+# [NEW REPOSITORY](https://github.com/KUKURUZKA165/cryptoText) #
 ![rus](/rus.png)
 # **CryptoText От AlexGyver...**
 ... С модом от KUKURUZKA
