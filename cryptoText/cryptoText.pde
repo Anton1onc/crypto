@@ -10,12 +10,12 @@ Button encrypt;
 String cryptPath="", refPath="", textPath="";
 PImage imageCrypt, imageRef;
 int imgWidth;
-int lang;
+boolean eng;
 
 void setup() {
   size(500, 280);
   
-  int lang = 2;
+  eng = false;
 
   // GUI
   cp5 = new ControlP5(this);
@@ -126,11 +126,11 @@ void encrypt() {
 
     // ошибки
     if (textSize == 0) {
-      debugArea.setText("Файл с текстом пуст! \nEmpty text file!");
+      EmptyTextFile();
       return;
     }
     if (textSize >= imgSize) {
-      debugArea.setText("Картинка слишком мала! \nImage is too small!");
+      ImageIsTooSmall();
       return;
     }
 
@@ -184,10 +184,43 @@ void encrypt() {
     }
     imageCrypt.updatePixels();                   // обновляем изображение
     imageCrypt.save("crypt_image.bmp");          // сохраняем
-    debugArea.setText("Готово \nFinished");
-  } else debugArea.setText("Вы не выбрали картинку! \nImage is not selected!");
+    finished();
+  } else {
+    ImageIsNotSelected();
+}}
+
+void ImageIsNotSelected() {                      // Штука чтобы делать перевод этих строк.
+if (eng == false) {
+  debugArea.setText("Вы не выбрали картинку!");}
+  else {
+  debugArea.setText("Image is not selected!");
+  }
 }
 
+void EmptyTextFile() {                      // Штука чтобы делать перевод этих строк.
+if (eng == false) {
+  debugArea.setText("Файл с текстом пуст!");}
+  else {
+  debugArea.setText("Empty text file!");
+  }
+}
+
+void ImageIsTooSmall() {                      // Штука чтобы делать перевод этих строк.
+if (eng == false) {
+  debugArea.setText("Картинка слишком мала!");}
+  else {
+  debugArea.setText("Image is too small!");
+  }
+}
+
+void finished() {                      // Штука чтобы делать перевод этих строк.
+if (eng == false) {
+  debugArea.setText("Готово");}
+  else {
+  debugArea.setText("Finished");
+  }
+}
+  
 // кнопка дешифровки
 void decrypt() {
   if (cryptPath.length() != 0) {
@@ -239,7 +272,15 @@ void decrypt() {
     String[] lines = new String[1];
     lines[0] = decryptText;
     saveStrings("decrypt_text.txt", lines);
-  } else debugArea.setText("Вы не выбрали картинку для расшифровки! \nCrypted image is not selected!");
+  } else CryptedImageIsNotSelected();
+}
+
+void CryptedImageIsNotSelected() {                      // Штука чтобы делать перевод этих строк.
+if (eng == false) {
+  debugArea.setText("Вы не выбрали картинку для расшифровки!");}
+  else {
+  debugArea.setText("Crypted image is not selected!");
+  }
 }
 
 // прочие кнопки
@@ -251,7 +292,7 @@ void selectRef(File selection) {
   if (selection != null) {
     refPath = selection.getAbsolutePath();
     debugArea.setText(refPath);
-  } else debugArea.setText("Вы не выбрали картинку! \nImage is not selected!");
+  } else ImageIsNotSelected();
 }
 
 void load_crypt() {
@@ -262,7 +303,7 @@ void selectCrypt(File selection) {
   if (selection != null) {
     cryptPath = selection.getAbsolutePath();
     debugArea.setText(cryptPath);
-  } else debugArea.setText("Вы не выбрали картинку для расшифровки! \nCrypted image is not selected!");
+  } else CryptedImageIsNotSelected();
 }
 
 void load_crypt_text() {
@@ -273,11 +314,19 @@ void selectCryptText(File selection) {
   if (selection != null) {
     textPath = selection.getAbsolutePath();
     debugArea.setText(textPath);
-  } else debugArea.setText("Вы не выбрали файл с текстом! \nText file is not selected!");
+  } else TextFileIsNotSelected();
+}
+
+void TextFileIsNotSelected() {                      // Штука чтобы делать перевод этих строк.
+if (eng == false) {
+  debugArea.setText("Вы не выбрали файл с текстом!");}
+  else {
+  debugArea.setText("Text file is not selected!");
+  }
 }
 
 void english() {
-  int lang = 1;
+  eng = true;
   load_ref.setCaptionLabel("Load image");
   load_crypt_text.setCaptionLabel("Load text");
   load_crypt.setCaptionLabel("Load crypt image");
@@ -287,7 +336,7 @@ void english() {
 }
 
 void rus() {
-  int lang = 2;
+  eng = false;
   load_ref.setCaptionLabel("Загрузить картинку");
   load_crypt_text.setCaptionLabel("Загрузить текст");
   load_crypt.setCaptionLabel("Загрузить шифр. картинку");
