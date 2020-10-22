@@ -1,3 +1,8 @@
+#!!!#
+#!!!#
+#[NEW REPOSITORY] (https://github.com/KUKURUZKA165/cryptoText)#
+#!!!#
+#!!!#
 ![rus](/rus.png)
 # **CryptoText От AlexGyver...**
 ... С модом от KUKURUZKA
@@ -10,7 +15,7 @@
 - [x] Полная тёмная тема.
 - [x] Немного улучшить читаймость кода.
 ### Инструкция (Взял от оригинального репо)
-+ Если не умеешь качать с гитхаба - [нажми вот сюда](https://github.com/KUKURUZKA165/crypto/archive/main.zip), чтобы скачать весь архив полностью.
++ Если не умеешь качать с гитхаба - [нажми вот сюда](https://github.com/KUKURUZKA165/cryptoText-old/archive/main.zip), чтобы скачать весь архив полностью.
 + В папках с исходниками есть папка **build**, там лежит скомпилированная программа для Windows.
 + Для запуска исходников нужно [скачать Processing](https://processing.org/download/). Также [Установить пакет Java](https://java.com/ru/download/) (Если он ещё не установлен).
 + Для запуска исходника открываем файл **.pde** при помощи Processing.
