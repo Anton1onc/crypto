@@ -10,10 +10,12 @@ Button encrypt;
 String cryptPath="", refPath="", textPath="";
 PImage imageCrypt, imageRef;
 int imgWidth;
-byte lang;
+int lang;
 
 void setup() {
   size(500, 280);
+  
+  int lang = 2;
 
   // GUI
   cp5 = new ControlP5(this);
@@ -81,16 +83,16 @@ void setup() {
   
   cp5.addButton("english")
   .setCaptionLabel("Eng")
-  .setPosition(425, 10)
-  .setSize(30, 25)
+  .setPosition(415, 10)
+  .setSize(35, 25)
   .setFont(createFont("arial", 12))
   .setColorBackground(color(20))
   ;
   
   cp5.addButton("rus")
   .setCaptionLabel("Rus")
-  .setPosition(460, 10)
-  .setSize(30, 25)
+  .setPosition(455, 10)
+  .setSize(35, 25)
   .setFont(createFont("arial", 12))
   .setColorBackground(color(20))
   ;
@@ -237,7 +239,7 @@ void decrypt() {
     String[] lines = new String[1];
     lines[0] = decryptText;
     saveStrings("decrypt_text.txt", lines);
-  } else debugArea.setText("Вы не выбрали картинку для разшифровки! \nCrypted image is not selected!");
+  } else debugArea.setText("Вы не выбрали картинку для расшифровки! \nCrypted image is not selected!");
 }
 
 // прочие кнопки
@@ -260,7 +262,7 @@ void selectCrypt(File selection) {
   if (selection != null) {
     cryptPath = selection.getAbsolutePath();
     debugArea.setText(cryptPath);
-  } else debugArea.setText("Вы не выбрали картинку для разшифровки! \nCrypted image is not selected!");
+  } else debugArea.setText("Вы не выбрали картинку для расшифровки! \nCrypted image is not selected!");
 }
 
 void load_crypt_text() {
@@ -275,7 +277,7 @@ void selectCryptText(File selection) {
 }
 
 void english() {
-  byte lang = 1;
+  int lang = 1;
   load_ref.setCaptionLabel("Load image");
   load_crypt_text.setCaptionLabel("Load text");
   load_crypt.setCaptionLabel("Load crypt image");
@@ -285,7 +287,7 @@ void english() {
 }
 
 void rus() {
-  byte lang = 2;
+  int lang = 2;
   load_ref.setCaptionLabel("Загрузить картинку");
   load_crypt_text.setCaptionLabel("Загрузить текст");
   load_crypt.setCaptionLabel("Загрузить шифр. картинку");
