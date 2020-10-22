@@ -2,7 +2,6 @@
 # **CryptoText От AlexGyver...**
 ... С модом от KUKURUZKA
 ### Ченджлог:
-- [ ] Переключатель светлой/тёмной темы.
 - [ ] Придумать иконку. Варианты в телегу @anton165. Либо ждать её в офф релизе.
 - [x] Переключатель рус/англ. Также перевести readme.md
 - [x] Полный перевод на русский.
@@ -21,7 +20,6 @@
 # **CryptoText By AlexGyver...**
 ... With a mod by KUKURUZKA
 ### Changelog:
-- [ ] Light/dark theme switch.
 - [ ] Some icon
 - [x] Switch rus/eng. Also translate readme.md
 - [x] Full translation into Russian.
