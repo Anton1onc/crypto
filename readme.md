@@ -1,7 +1,7 @@
 ![rus](/rus.png)
 # **CryptoText От AlexGyver...**
 ... С модом от KUKURUZKA
-### Ченджлог:
+### Ченджлог и планы:
 - [ ] Придумать иконку. Варианты в телегу @anton165. Либо ждать её в офф релизе.
 - [x] Переключатель рус/англ. Также перевести readme.md
 - [x] Полный перевод на русский.
@@ -19,7 +19,7 @@
 ![eng](/eng.png)
 # **CryptoText By AlexGyver...**
 ... With a mod by KUKURUZKA
-### Changelog:
+### Changelog and plans:
 - [ ] Some icon
 - [x] Switch rus/eng. Also translate readme.md
 - [x] Full translation into Russian.
